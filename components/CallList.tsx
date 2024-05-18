@@ -57,7 +57,6 @@ const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
       } catch (error) {
         toast({
           title: 'Failed to fetch recordings',
-          description: 'Please try again later',
         })
       }
       
@@ -66,7 +65,7 @@ const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
     if (type === 'recordings') {
       fetchRecordings();
     }
-  }, [type, callRecordings]);
+  }, [type, callRecordings, toast]);
 
   if (isLoading) return <Loader />;
 
